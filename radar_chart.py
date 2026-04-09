@@ -11,15 +11,7 @@ metrics = ['Precision', 'Recall', 'Map@50', 'Map@50-95', 'Params']
 
 # 9 datasets to compare (example data, replace with your actual values)
 data = {
-    '0.25:0.75':     [0.929, 0.821, 0.905, 0.671, 14016172],
-    '0.5:0.5':       [0.933, 0.826, 0.914, 0.669, 13951676],
-    '0.75:0.25':     [0.946, 0.839, 0.924, 0.672, 13899452],
-    'Method A':      [0.912, 0.805, 0.889, 0.658, 14500000],
-    'Method B':      [0.925, 0.818, 0.901, 0.665, 14200000],
-    'Method C':      [0.938, 0.832, 0.918, 0.670, 14100000],
-    'Method D':      [0.920, 0.812, 0.895, 0.662, 13800000],
-    'Method E':      [0.928, 0.820, 0.908, 0.666, 14050000],
-    'Method F':      [0.942, 0.835, 0.921, 0.671, 13980000],
+ 
 }
 
 # ============================================================================
@@ -137,7 +129,7 @@ def create_radar_chart(data_dict, metrics, colors, output_path='radar_chart.png'
     # Set axis labels - moved outside the chart
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(metrics, size=12, fontweight='medium')
-    ax.xaxis.set_tick_params(pad=25)  # Move labels outward
+    ax.xaxis.set_tick_params(pad=16)  # Move labels outward
 
     # Remove radial labels
     ax.set_yticks([])
@@ -180,7 +172,7 @@ def create_radar_chart(data_dict, metrics, colors, output_path='radar_chart.png'
     ax.grid(True, linestyle='-', linewidth=0.5, alpha=0.3)
 
     # Title
-    plt.title('Performance Comparison', size=13, fontweight='bold', pad=15)
+    plt.title('', size=13, fontweight='bold', pad=15)
 
     # Save figure
     plt.tight_layout()
@@ -200,7 +192,7 @@ if __name__ == '__main__':
     # Example: show values for '0.75:0.25' method
     create_radar_chart(
         data, metrics, COLORS,
-        dpi=300,
-        show_values_for='0.75:0.25',  # 显示指定方法的数值
-        color_scheme='NATURE'  # 可选: NATURE, SCIENCE, IEEE, SOFT, NEURIPS
+        dpi=600,
+        show_values_for='ours',  # 显示指定方法的数值
+        color_scheme='SCIENCE'  # 可选: NATURE, SCIENCE, IEEE, SOFT, NEURIPS
     )
